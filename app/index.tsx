@@ -2,7 +2,7 @@ import {Redirect} from "expo-router";
 
 const RootPage = () => {
     return (
-        <Redirect href="/home"/>
+        <Redirect href="/dose"/>
     )
 }
 
