@@ -1,6 +1,7 @@
 import {Text, View} from 'react-native';
 import Svg, {Circle} from 'react-native-svg';
 import {Colors} from "@/shared/constants/colors";
+import {AnimateCircle} from "@/shared/components/animate/AnimateCircle";
 
 interface CircularProgressProps {
     size?: number;
@@ -10,8 +11,8 @@ interface CircularProgressProps {
     backgroundColor?: string;
 }
 
-export const CircularProgress = ({
-                                     size = 35,
+export const ProgressCircular = ({
+                                     size = 40,
                                      strokeWidth = 2,
                                      progress,
                                      color = Colors.primary,
@@ -34,7 +35,7 @@ export const CircularProgress = ({
                     fill="transparent"
                 />
                 {/* Progress circle */}
-                <Circle
+                <AnimateCircle
                     cx={size / 2}
                     cy={size / 2}
                     r={radius}
@@ -48,7 +49,7 @@ export const CircularProgress = ({
                 />
             </Svg>
             {/* Progress text */}
-            <Text className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-xs text-gray_light">
+            <Text className={`absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-xs ${progress === 100 ? "text-primary_light" : "text-gray_light"}`}>
                 {progress}%
             </Text>
         </View>);

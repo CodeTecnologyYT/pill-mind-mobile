@@ -4,7 +4,6 @@ import {FontAwesome, Ionicons} from "@expo/vector-icons";
 import {Colors} from "@/shared/constants/colors";
 
 const TabsLayout = () => {
-
     return (
         <Tabs
             screenOptions={{
@@ -15,7 +14,7 @@ const TabsLayout = () => {
                     backgroundColor: Colors.background
                 },
                 tabBarStyle:{
-                    height: Platform.OS == "android"?110: 90,
+                    height: Platform.OS === "android"?110: 90,
                     paddingTop: 15,
                     paddingLeft: 10,
                     paddingRight: 10,

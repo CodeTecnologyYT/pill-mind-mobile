@@ -7,9 +7,16 @@ import {TabPanel} from "@/shared/components/tabs/TabPanel";
 import {TabList} from "@/shared/components/tabs/TabList";
 import {Tab} from "@/shared/components/tabs/Tab";
 import {CardAlarmMultiple} from "@/features/alarm/components/CardAlarmMultiple";
+import {useAlarmContext} from "@/features/alarm/context/AlarmContext";
 
 export const CardAlarmList = () => {
-    const alarms: { id: string, name: string }[] = [{id: "1", name: "bryan"}];
+    const {
+        alarmComplete,
+        alarmIncomplete,
+        saveAlarmMutiAllIsCompleted,
+        saveAlarmMultiIsCompleted,
+        saveAlarmSimpleIsCompleted
+    } = useAlarmContext();
     const [tabActive, setTabActive] = React.useState<string>("doses-incomplete");
     return (
         <TabProvider tabActive={tabActive}>
@@ -19,14 +26,35 @@ export const CardAlarmList = () => {
             </TabList>
             <TabPanel value="doses-incomplete">
                 <FlatList
-                    data={alarms}
+                    showsVerticalScrollIndicator={false}
+                    contentContainerClassName="pb-safe-offset-12 gap-5"
+                    data={alarmIncomplete}
                     keyExtractor={item => item.id}
-                    renderItem={() => <CardAlarmMultiple/>
-                    }
+                    renderItem={(data) => {
+                        if (data.item.isMultiple) return (<CardAlarmMultiple
+                            alarmMultiple={data.item}
+                            onCompleteAll={saveAlarmMutiAllIsCompleted}
+                            onComplete={saveAlarmMultiIsCompleted}/>)
+                        return <CardAlarmSimple alarmSimple={data.item}
+                                                onComplete={saveAlarmSimpleIsCompleted}/>
+                    }}
                 />
             </TabPanel>
             <TabPanel value="doses-complete">
-                <Text>Tab 2</Text>
+                <FlatList
+                    showsVerticalScrollIndicator={false}
+                    contentContainerClassName="pb-safe-offset-12 gap-5"
+                    data={alarmComplete}
+                    keyExtractor={item => item.id}
+                    renderItem={(data) => {
+                        if (data.item.isMultiple) return (<CardAlarmMultiple
+                            alarmMultiple={data.item}
+                            onCompleteAll={saveAlarmMutiAllIsCompleted}
+                            onComplete={saveAlarmMultiIsCompleted}/>)
+                        return <CardAlarmSimple alarmSimple={data.item}
+                                                onComplete={saveAlarmSimpleIsCompleted}/>
+                    }}
+                />
             </TabPanel>
         </TabProvider>
     )

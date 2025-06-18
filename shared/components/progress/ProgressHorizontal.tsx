@@ -1,6 +1,7 @@
 import {Text, View} from "react-native";
-import Svg, {Line} from 'react-native-svg';
+import Svg from 'react-native-svg';
 import {Colors} from "@/shared/constants/colors";
+import {AnimateLine} from "@/shared/components/animate/AnimateLine";
 
 interface HorizontalProgressProps {
     steps: number;
@@ -12,17 +13,16 @@ interface HorizontalProgressProps {
     gap?: number;
 }
 
-export const HorizontalProgress = ({
+export const ProgressHorizontal = ({
                                        steps,
                                        stepCompleted = 0,
                                        strokeWidth = 4,
                                        color = Colors.primary,
                                        textColor = Colors.gray_light,
                                        backgroundColor = Colors.gray_step,
-                                       gap = 2
+                                       gap = 1
                                    }: HorizontalProgressProps) => {
     const stepWidth = (100 - (gap * (steps - 1))) / steps;
-
     return (
         <View className="gap-2">
             <Text className={"text-xs"} style={{
@@ -36,16 +36,19 @@ export const HorizontalProgress = ({
                     {
                         Array.from({length: steps}, (_, index) => {
                                 const startX = index * (stepWidth + gap);
-                                const endX = startX + stepWidth;
                                 const isCompleted = index < stepCompleted;
                                 return (
-                                    <Line
+                                    <AnimateLine
                                         key={index}
-                                        x1={`${startX}%`}
-                                        x2={`${endX}%`}
-                                        stroke={isCompleted ? color : backgroundColor}
-                                        strokeWidth={strokeWidth}
+                                        x={`${startX}%`}
+                                        width={`${stepWidth}%`}
+                                        height={strokeWidth}
+                                        isCompleted={isCompleted}
+                                        completedColor={Colors.primary_light} // Color azul cuando completado
+                                        defaultColor={backgroundColor}
+                                        duration={300}
                                     />
+
                                 )
                             }
                         )
