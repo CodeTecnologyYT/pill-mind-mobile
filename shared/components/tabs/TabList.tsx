@@ -13,7 +13,7 @@ export const TabList = ({
                         }: TabListProps) => {
     const {tabActive} = useTabContext();
     return (
-        <View className={`flex-row  ${className}`}>
+        <View className={`flex-row gap-1  ${className}`}>
             {React.Children.map(children, (child) => {
                 if (React.isValidElement(child)) {
                     return React.cloneElement(child as any, {

@@ -20,7 +20,7 @@ export const CardAlarmMultiple = ({
                                   }: CardAlarmMultipleProps) => {
 
     return (
-        <View className={`rounded-lg px-6 py-8 gap-4 transition-colors duration-300 ease-in-out 
+        <View className={`rounded-lg px-6 py-8 gap-2 transition-colors duration-300 ease-in-out 
                           ${alarmMultiple.isCompleted ? "bg-blue-100" : "bg-white"}`}>
             <View className="flex-row gap-3">
                 <View className={`items-start justify-start`}>
@@ -29,7 +29,7 @@ export const CardAlarmMultiple = ({
                         <Image
                             source={require('@/assets/images/alarms/pills.svg')}
                             style={{
-                                width: 30,
+                                width: 20,
                                 aspectRatio: 1,
                                 tintColor: alarmMultiple.isCompleted ? Colors.background : Colors.gray_icon,
                             }}
@@ -39,7 +39,7 @@ export const CardAlarmMultiple = ({
                         />
                     </View>
                 </View>
-                <View className="gap-4">
+                <View className="gap-1">
                     <Text className={`font-bold text-black_light`}>{alarmMultiple.name}</Text>
                     <View className="flex-row gap-2 items-center">
                         <Text className="bg-primary self-baseline text-white text-xs px-1.5 py-1.5 rounded-lg">
@@ -50,7 +50,7 @@ export const CardAlarmMultiple = ({
                             {alarmMultiple.count} {alarmMultiple.measure}
                         </Text>
                     </View>
-                    <View className="gap-3">
+                    <View className="gap-2 pt-3">
                         {
                             alarmMultiple.group.map(item =>
                                 <CardAlarmMultipleItem

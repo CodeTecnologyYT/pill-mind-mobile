@@ -15,23 +15,24 @@ export const CardAlarmSimple = ({alarmSimple, onComplete}: CardAlarmSimpleProps)
         <View className={`rounded-lg px-6 py-8 gap-3 transition-colors duration-300 ease-in-out 
                           ${alarmSimple.isCompleted ? "bg-blue-100" : "bg-white"}`}>
             <View className="flex-row gap-3 self-baseline">
-                <View
-                    className={`transition-colors duration-300 ease-in-out rounded-xl px-4 items-center justify-center
-                                ${alarmSimple.isCompleted ? "bg-blue-200 " : "bg-background"}`}>
-                    <Image
-                        source={require('@/assets/images/alarms/pills.svg')}
-                        style={{
-                            width: 30,
-                            aspectRatio: 1,
-                            tintColor: alarmSimple.isCompleted ? Colors.background : Colors.gray_icon,
-                            display: 'flex',
-                        }}
-                        placeholder={"image"}
-                        contentFit="contain"
-                        transition={300}
-                    />
+                <View className={`items-start justify-start`}>
+                    <View className={`transition-colors duration-300 ease-in-out rounded-xl px-4 py-4
+                          self-baseline ${alarmSimple.isCompleted ? "bg-blue-200 " : "bg-background"}`}>
+                        <Image
+                            source={require('@/assets/images/alarms/pills.svg')}
+                            style={{
+                                width: 20,
+                                aspectRatio: 1,
+                                tintColor: alarmSimple.isCompleted ? Colors.background : Colors.gray_icon,
+                                display: 'flex',
+                            }}
+                            placeholder={"image"}
+                            contentFit="contain"
+                            transition={300}
+                        />
+                    </View>
                 </View>
-                <View className="gap-4">
+                <View className="gap-1">
                     <Text className={`font-bold text-black_light`}>{alarmSimple.name}</Text>
                     <View className="flex-row gap-2 items-center">
                         <Text className="bg-primary self-baseline text-white text-xs px-1.5 py-1.5 rounded-lg">

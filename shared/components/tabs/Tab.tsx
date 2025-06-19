@@ -26,9 +26,9 @@ export const Tab = ({
     return (
         <Pressable
             onPress={handlePress}
-            className={`py-3 px-4 flex-1 border-b ${className} ${isCurrentlyActive ? 'border-primary' : 'border-gray_light'}`}>
+            className={`py-2 px-2 rounded-lg${className} ${isCurrentlyActive ? 'bg-white' : ''}`}>
             <Text className={`text-center text-sm font-medium text-black_light
-                ${isCurrentlyActive ? 'color-primary' : 'color-gray_light'}`}>
+                ${isCurrentlyActive ? 'color-black_light' : 'color-gray_light'}`}>
                 {label}
             </Text>
         </Pressable>

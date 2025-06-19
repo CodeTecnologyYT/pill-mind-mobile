@@ -10,6 +10,7 @@ const TabsLayout = () => {
                 headerShown: false,
                 animation: 'fade',
                 tabBarInactiveTintColor: Colors.gray_light,
+                tabBarActiveTintColor: Colors.primary,
                 sceneStyle:{
                     backgroundColor: Colors.background
                 },

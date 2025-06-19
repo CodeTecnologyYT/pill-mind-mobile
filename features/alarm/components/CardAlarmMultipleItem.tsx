@@ -15,7 +15,7 @@ export const CardAlarmMultipleItem = ({checked, onChange, name, count, measure}:
             <CheckBox size={18} checked={checked} onChange={onChange}/>
             <View>
                 <Text className={`text-sm text-black_slim ${checked ? "line-through" : ""}`}>{name}</Text>
-                <Text className={`text-xs text-gray_light`}>{count} {measure}</Text>
+                <Text className={`text-xs text-black_slim`}>{count} {measure}</Text>
             </View>
         </Pressable>
     )
