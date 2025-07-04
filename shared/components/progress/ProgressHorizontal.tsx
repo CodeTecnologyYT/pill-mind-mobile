@@ -26,7 +26,7 @@ export const ProgressHorizontal = ({
     return (
         <View className="gap-2">
             <Text className={"text-xs"} style={{
-                color: stepCompleted === steps ? Colors.primary : textColor,
+                color: stepCompleted === steps ? Colors.primary_dark : textColor,
                 transitionProperty: "color",
                 transitionDuration: "300ms",
                 transitionTimingFunction: "ease-in-out"
@@ -44,7 +44,7 @@ export const ProgressHorizontal = ({
                                         width={`${stepWidth}%`}
                                         height={strokeWidth}
                                         isCompleted={isCompleted}
-                                        completedColor={Colors.primary_light} // Color azul cuando completado
+                                        completedColor={Colors.primary}
                                         defaultColor={backgroundColor}
                                         duration={300}
                                     />

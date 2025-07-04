@@ -17,13 +17,13 @@ export const CardAlarmSimple = ({alarmSimple, onComplete}: CardAlarmSimpleProps)
             <View className="flex-row gap-3 self-baseline">
                 <View className={`items-start justify-start`}>
                     <View className={`transition-colors duration-300 ease-in-out rounded-xl px-4 py-4
-                          self-baseline ${alarmSimple.isCompleted ? "bg-blue-200 " : "bg-background"}`}>
+                          self-baseline bg-background`}>
                         <Image
                             source={require('@/assets/images/alarms/pills.svg')}
                             style={{
                                 width: 20,
                                 aspectRatio: 1,
-                                tintColor: alarmSimple.isCompleted ? Colors.background : Colors.gray_icon,
+                                tintColor: Colors.black_slim,
                                 display: 'flex',
                             }}
                             placeholder={"image"}

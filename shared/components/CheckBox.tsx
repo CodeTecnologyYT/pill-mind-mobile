@@ -29,7 +29,7 @@ export const CheckBox = ({
                        height: size,
                    }}
                    className={`border rounded-md justify-center items-center 
-                   ${checked ? "bg-primary_light border-primary_light" : "border-gray_light"} 
+                   ${checked ? "bg-primary border-primary" : "border-gray_light"} 
                    ${className}`}
         >
             {checked && <FontAwesome name="check" size={11} color={"white"}/>}

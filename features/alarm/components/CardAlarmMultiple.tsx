@@ -25,13 +25,13 @@ export const CardAlarmMultiple = ({
             <View className="flex-row gap-3">
                 <View className={`items-start justify-start`}>
                     <View className={`transition-colors duration-300 ease-in-out rounded-xl px-4 py-4
-                          self-baseline ${alarmMultiple.isCompleted ? "bg-blue-200 " : "bg-background"}`}>
+                          self-baseline bg-background`}>
                         <Image
                             source={require('@/assets/images/alarms/pills.svg')}
                             style={{
                                 width: 20,
                                 aspectRatio: 1,
-                                tintColor: alarmMultiple.isCompleted ? Colors.background : Colors.gray_icon,
+                                tintColor: Colors.black_slim,
                             }}
                             placeholder={"image"}
                             contentFit="contain"
